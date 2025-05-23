@@ -119,7 +119,7 @@ export default function CheckoutForm() {
         disabled={!stripe || loading}
         className="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 disabled:opacity-50"
       >
-        {loading ? "Processing…" : `Pay £${0.10}`}
+        {loading ? "Processing…" : `Pay £${1}`}
       </button>
     </form>
   );
