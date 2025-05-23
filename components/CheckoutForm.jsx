@@ -40,10 +40,12 @@ export default function CheckoutForm() {
       const res = await fetch("/api/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 1 }), // £1.99 in pence
+        body: JSON.stringify({ amount: 100 }), // £1.99 in pence
       });
 
-      const { clientSecret } = await res.json();
+        const { clientSecret } = await res.json();
+        
+        
 
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -117,7 +119,7 @@ export default function CheckoutForm() {
         disabled={!stripe || loading}
         className="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 disabled:opacity-50"
       >
-        {loading ? "Processing…" : `Pay £${0.01}`}
+        {loading ? "Processing…" : `Pay £${0.10}`}
       </button>
     </form>
   );

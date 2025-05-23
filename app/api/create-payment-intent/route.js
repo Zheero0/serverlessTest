@@ -8,6 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export async function POST(req) {
   try {
     const { amount } = await req.json();
+    console.log("Received amount:", amount);
 
     if (!amount) {
       return new Response(JSON.stringify({ error: "Amount is required" }), {
@@ -21,6 +22,9 @@ export async function POST(req) {
       payment_method_types: ["card"],
     });
 
+    console.log("Payment Intent:", paymentIntent);
+    console.log("Client secret:", paymentIntent.client_secret);
+
     return new Response(
       JSON.stringify({ clientSecret: paymentIntent.client_secret }),
       {
@@ -28,7 +32,7 @@ export async function POST(req) {
       }
     );
   } catch (error) {
-    console.error(error);
+    console.error("Error creating payment intent:", error);
     return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
     });
