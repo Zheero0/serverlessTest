@@ -1,4 +1,7 @@
 "use client"
+import Link from "next/link";
+
+
 export default function Home() {
 
   const recipient = {
@@ -25,6 +28,9 @@ export default function Home() {
     <button onClick={handleMail} 
     className="bg-red-500 px-2 py-1 "
     >Handle Click</button>
+
+    <Link href="/checkout" className="bg-blue-500 px-2 py-2">hi</Link>
+
     </div>
   );
 }
