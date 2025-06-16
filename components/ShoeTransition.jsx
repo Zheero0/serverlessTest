@@ -22,10 +22,6 @@ export default function ShoeTransition() {
 
     return (
         <div>
-            <P
-            >
-
-            </P>
         <Image
           src={imageSrc}
           alt="Hero 21Sneaker Image"

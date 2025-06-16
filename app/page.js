@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <ShoeCompareSlider/>
+
     <button onClick={handleMail} 
     className="bg-red-500 px-2 py-1 "
     >Handle Mail</button>
