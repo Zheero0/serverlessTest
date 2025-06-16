@@ -28,6 +28,7 @@ export default function CheckoutForm() {
   // Add state for name and phone number
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -61,7 +62,19 @@ export default function CheckoutForm() {
         console.error(result.error.message);
         alert("Payment failed: " + result.error.message);
       } else if (result.paymentIntent.status === "succeeded") {
+        //alert user payments been made 
         alert("Payment succeeded!");
+      
+        const mail = await fetch("/api/send-mail", {
+          method: "POST",
+          headedrs: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            recipient,
+          }),
+        });
+        
       }
     } catch (err) {
       console.error("Payment failed:", err);
@@ -84,7 +97,20 @@ export default function CheckoutForm() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          placeholder="Your full name"
+          placeholder="Full name"
+          className="w-full border border-gray-300 p-3 rounded-md"
+        />
+      </label>
+      <label className="block">
+        <span className="text-gray-700 font-medium mb-2 block">
+          Email
+        </span>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          placeholder="Email"
           className="w-full border border-gray-300 p-3 rounded-md"
         />
       </label>
@@ -99,7 +125,7 @@ export default function CheckoutForm() {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           required
-          placeholder="Your phone number"
+          placeholder="Phone Number"
           className="w-full border border-gray-300 p-3 rounded-md"
         />
       </label>

@@ -1,12 +1,14 @@
 "use client"
 import Link from "next/link";
+import Hero from "@/components/Hero";
+import ShoeCompareSlider from "@/components/shoeCompareSlider";
 
 
 export default function Home() {
 
   const recipient = {
-    name: "Real Nig",
-    email: "rehans.axis@gmail.com",
+    name: "Test User",
+    // email: "rehans.axis@gmail.com",
   }
 
   const handleMail = async () => {
@@ -25,11 +27,13 @@ export default function Home() {
 
   return (
     <div>
+      <Hero />
+      <ShoeCompareSlider/>
     <button onClick={handleMail} 
     className="bg-red-500 px-2 py-1 "
-    >Handle Click</button>
+    >Handle Mail</button>
 
-    <Link href="/checkout" className="bg-blue-500 px-2 py-2">hi</Link>
+    <Link href="/checkout" className="bg-blue-500 px-2 py-2">Checkout</Link>
 
     </div>
   );
