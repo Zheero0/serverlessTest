@@ -28,12 +28,12 @@ export default function Home() {
   return (
     <div>
       <Hero />
-
+{/* 
     <button onClick={handleMail} 
     className="bg-red-500 px-2 py-1 "
     >Handle Mail</button>
 
-    <Link href="/checkout" className="bg-blue-500 px-2 py-2">Checkout</Link>
+    <Link href="/checkout" className="bg-blue-500 px-2 py-2">Checkout</Link> */}
 
     </div>
   );

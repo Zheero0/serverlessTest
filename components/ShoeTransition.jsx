@@ -5,13 +5,17 @@ import Image from "next/image";
 
 export default function ShoeTransition() {
     //init default state for pre clean shoe
-    const [isShoeClean, setIsShoeCleanw] = useState(false);
+    const [isShoeClean, setIsShoeClean] = useState(false);
     const [imageSrc, setImageSrc] = useState("/HeroImage1.jpg");
     
     const toggleSrc = () => {
-        setImageSrc((prev) => {
-            prev === "HeroImage1.jpg" ? "HeroImage2.jpg" : "HeroImage1.jpg";
-        })
+        if (imageSrc === "/HeroImage1.jpg") {
+            setImageSrc("/HeroImage2.jpg");
+            setIsShoeClean(true);
+        } else { 
+            setImageSrc("/HeroImage1.jpg");
+            setIsShoeClean(false)
+        }
 
 
     }
@@ -24,11 +28,12 @@ export default function ShoeTransition() {
         <div>
         <Image
           src={imageSrc}
-          alt="Hero 21Sneaker Image"
-          width={300}
-          height={400}
-          className="w-full h-auto object-contain rounded-2xl"
+          alt="Hero Sneaker Image"
+          width={250}
+          height={350}
+          className="w object-contain rounded-2xl"
           priority
+          onClick={toggleSrc}
         />
       </div>
     );
