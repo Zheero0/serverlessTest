@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import ShoeCompareSlider from "./shoeCompareSlider";
 import ShoeTransition from "./ShoeTransition"
 import Link from "next/link";
+import PricesSection from "./PricesSection";
 
 const Hero = () => {
   return (
-    <section className="w-full h-100vh mt-6 bg-gradient-to-b from-white to-gray-100 flex flex-col items-center justify-center relative overflow-hidden">
+    <section className="w-full h-100vh mt-6  flex flex-col items-center justify-center relative overflow-hidden">
       <div className="container mx-auto px-6 text-center z-10">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-4 text-gray-900 leading-tight">
           We Don’t Just Clean. <br className="hidden md:block" />
@@ -23,7 +23,7 @@ const Hero = () => {
       </div>
 
       {/* Optimized Next.js Image Component */}
-      <div className="mt-8">
+      <div className="mt-8 h-100vh w-full flex items-center justify-center relative">
         {/* <Image
           src="/HeroImage1.jpg"
           alt="Sneaker background"
@@ -33,7 +33,10 @@ const Hero = () => {
           priority
         /> */}
         <ShoeTransition/>
-      </div>
+          </div>
+          <div>
+            <PricesSection/>
+          </div>
     </section>
   );
 };

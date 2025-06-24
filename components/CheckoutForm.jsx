@@ -57,14 +57,16 @@ export default function CheckoutForm() {
           },
         },
       });
-
+    //payment failure edgecase resolution 
       if (result.error) {
         console.error(result.error.message);
         alert("Payment failed: " + result.error.message);
       } else if (result.paymentIntent.status === "succeeded") {
         //alert user payments been made 
         alert("Payment succeeded!");
-      
+        
+        const recipient = {name, email}
+        //conf mail sending
         const mail = await fetch("/api/send-mail", {
           method: "POST",
           headedrs: {
@@ -80,7 +82,7 @@ export default function CheckoutForm() {
       console.error("Payment failed:", err);
       alert("Payment failed: " + err.message);
     }
-
+    
     setLoading(false);
   };
 

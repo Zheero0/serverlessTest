@@ -25,3 +25,6 @@
 //     headers: { "Content-Type": "application/json" },
 //   });
 // }
+
+
+//call to get prices from the database

@@ -34,7 +34,8 @@ export default function ShoeTransition() {
           className="w object-contain rounded-2xl"
           priority
           onClick={toggleSrc}
-        />
+            />
+            <p>{isShoeClean ? "Before " :  "After "}</p>
       </div>
     );
 }

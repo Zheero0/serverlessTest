@@ -1,11 +1,11 @@
-"use client";
+"use client"
+import React from 'react'
+import { useEffect, useState } from 'react'
+import { db, collection, getDocs } from "../firebase/config";
+import Spinner from './Spinner'
+import PricePlan from './PricePlan'
 
-import { useEffect, useState } from "react";
-import { db, collection, getDocs } from "../../firebase/config";
-import Spinner from "@/components/Spinner";
-import PricePlan from "@/components/PricePlan";
-
-export default function PricesPage() {
+const PricesSection = () => {
   const [prices, setPrices] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -35,8 +35,6 @@ export default function PricesPage() {
     fetchPrices();
   }, []);
 
-  // if (loading) return <p>Loading Prices...</p>;
-
   //loading state for prices
   if (loading)
     return (
@@ -48,7 +46,9 @@ export default function PricesPage() {
 
   return (
     <main className="container mx-auto px-4 py-8">
-    <PricePlan prices={prices}/>
+      <PricePlan prices={prices} />
     </main>
   );
 }
+
+export default PricesSection;
